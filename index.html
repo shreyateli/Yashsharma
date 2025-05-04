@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shreya H. Teli | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(to right, #111, #222);
+      padding: 5rem 1rem 3rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-direction: column;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00ffff;
+    }
+
+    nav {
+      background-color: #111;
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 0 10px #000;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #00ffff;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00cccc;
+    }
+
+    .container {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+      background: #111;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffff20;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      color: #00ffff;
+      border-bottom: 2px solid #00ffff;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 5px #00ffff;
+    }
+
+    .section p, .section li {
+      color: #ccc;
+    }
+
+    .section ul {
+      list-style: square;
+      padding-left: 1.5rem;
+    }
+
+    .socials a {
+      display: inline-block;
+      margin: 0 15px;
+      text-decoration: none;
+      color: #00ffff;
+      font-weight: bold;
+      border: 2px solid #00ffff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px #00ffff40;
+    }
+
+    .socials a:hover {
+      background-color: #00ffff;
+      color: #000;
+      box-shadow: 0 0 12px #00ffff;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: #1a1a1a;
+      color: #fff;
+      border: 1px solid #00ffff60;
+      border-radius: 8px;
+      padding: 0.8rem;
+      font-size: 1rem;
+      resize: none;
+      transition: 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #00ffff;
+      box-shadow: 0 0 10px #00ffff80;
+    }
+
+    .contact-form button {
+      background: #00ffff;
+      color: #000;
+      border: none;
+      padding: 0.8rem 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: #00cccc;
+      box-shadow: 0 0 12px #00ffff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #111;
+      color: #777;
+      font-size: 0.9rem;
+      border-top: 1px solid #333;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .socials a {
+        margin: 10px 5px;
+        padding: 0.4rem 0.8rem;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        padding: 0.5rem;
+      }
+
+      nav a {
+        margin: 0 10px;
+        font-size: 1.1rem;
+      }
+
+      .section {
+        padding: 1.5rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 0.9rem;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .socials a {
+        margin: 5px 3px;
+        padding: 0.3rem 0.6rem;
+      }
+
+      .section h2 {
+        font-size: 1.8rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 0.9rem;
+      }
+
+      footer p {
+        font-size: 0.8rem;
+      }
+    }
+
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      border-right: .15em solid #00ffff;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: .1em;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #00ffff; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+        <h1 class="typewriter" id="typewriter-text" aria-label="Yash Sharma"></h1>
+      <p>Welcome to my portfolio!</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#connect">Connect</a>
+    <a href="#contact">Contact Me</a>
+  </nav>
+
+  <div class="container">
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>
+        Hi! I am Yash Sharma, aspiring to do engineering and build a strong future in the world of tech. I enjoy learning, coding, and taking on new challenges.
+      </p>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <ul>
+        <li>Frontend: HTML, CSS, JavaScript</li>
+        <li>Tools: Git, GitHub, VS Code</li>
+        <li>Languages: Python, C</li>
+        <li>Design: Canva, Figma (Basics)</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <p>
+        🚀 Coming soon: My personal projects and contributions will be displayed here. Stay tuned!
+      </p>
+    </section>
+
+    <section id="connect" class="section">
+      <h2>Connect with Me</h2>
+      <div class="socials">
+        <a href=https://www.instagram.com/_yasharma.__?igsh=MTF0aWk2ZXA0enZkYw==" target="_blank">Instagram</a>
+        <a href="github.com" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/yash-sharma-bba52031b" target="_blank">LinkedIn</a>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact Me</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Yash Sharma. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Typewriter effect
+    const text = "Yash Sharma";
+    let i = 0;
+    const speed = 150;
+    const typewriter = document.getElementById("typewriter-text");
+
+    function typeWriter() {
+      if (i < text.length) {
+        typewriter.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    typeWriter();
+
+    // Scroll reveal
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
